@@ -25,10 +25,11 @@ class PhoneBook extends Component {
       const normalizedCurrentPhone = item.phone.toLowerCase();
 
       return (
-        normalizedCurrentName === normalizedName &&
+        normalizedCurrentName === normalizedName ||
         normalizedCurrentPhone === normalizedPhone
       );
     });
+
     return !!dublicate;
   }
 
@@ -37,7 +38,7 @@ class PhoneBook extends Component {
 
     if (this.isDublicate(data)) {
       return alert(
-        `Book with ${data.title} and ${data.author} already in list`
+        `Contact with this ${data.name || data.phone} already in contacts book`
       );
     }
 
